@@ -1,0 +1,23 @@
+Node.JS : Entorno de desarrollo de Javascript 
+
+NPM : Node Package Manager 
+
+Webpack : Bundler (empaquetador)
+Babel : Transpiler (traductor)
+JSX : JS + XML 
+
+API : Application Programming Interface (Interfaz de programación de aplicaciones)
+API WEB : API para el desarrollo de aplicaciones web
+API REST : Representación de datos en formato JSON
+
+create-react-app : Crea una aplicación basica de React
+
+NPX : NPM Package Manager
+
+
+COMANDO DE INSTALACION NPM : 
+
+npm i|install [tipo] <paquete>
+
+1) npm i -g create-react-app
+2) create-react-app app
