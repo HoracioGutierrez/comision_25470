@@ -21,3 +21,4 @@ npm i|install [tipo] <paquete>
 
 1) npm i -g create-react-appmkjhkjdhvkx
 2) create-react-app app
+sdkhfklsdjhf
