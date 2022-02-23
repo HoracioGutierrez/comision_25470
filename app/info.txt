@@ -25,3 +25,19 @@ Componente()   =  <Componente> </Componente>
 
 .  = La misma carpeta donde estas parado vos archivo
 .. = Subi una carpeta desde donde estas parado vos archivo
+
+
+
+
+
+/src
+    |_index.js
+        |_componentes/
+            |_App.js
+                |_Header.js
+                    |_NavBar.js
+                        |_CarWidget.js
+                |_ItemListContainer.js
+
+
+BEM 

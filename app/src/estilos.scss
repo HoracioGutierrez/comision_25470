@@ -1,0 +1,44 @@
+$colorPrimario: yellow;
+
+@mixin background($url) {
+    background-image: url($url);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    height: 100vh;
+}
+
+#main-header {
+    background-color: $colorPrimario;
+
+    nav {
+        a {
+            color: black;
+            text-decoration: none;
+        }
+    }
+}
+
+main {
+    div {
+        height: 400px;
+        //@include background("https://i.picsum.photos/id/62/200/300.jpg?hmac=Ova5b3XqMVygL4ZvFJ1MfAehiXKiM1Ol14jN_6widUY");
+        
+    }
+}
+
+footer {
+    background-color: $colorPrimario;
+    //@include background("https://i.picsum.photos/id/62/200/300.jpg?hmac=Ova5b3XqMVygL4ZvFJ1MfAehiXKiM1Ol14jN_6widUY");
+}

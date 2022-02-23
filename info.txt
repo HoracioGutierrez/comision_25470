@@ -19,5 +19,5 @@ COMANDO DE INSTALACION NPM :
 
 npm i|install [tipo] <paquete>
 
-1) npm i -g create-react-app
+1) npm i -g create-react-appmkjhkjdhvkx
 2) create-react-app app
