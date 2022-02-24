@@ -1,12 +1,5 @@
 $colorPrimario: yellow;
 
-@mixin background($url) {
-    background-image: url($url);
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -19,26 +12,35 @@ body,
     height: 100vh;
 }
 
+#root {
+    display: flex;
+    flex-direction: column;
+}
+
 #main-header {
     background-color: $colorPrimario;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 
     nav {
         a {
             color: black;
             text-decoration: none;
+            margin-left: 1rem;
         }
     }
 }
 
 main {
-    div {
-        height: 400px;
-        //@include background("https://i.picsum.photos/id/62/200/300.jpg?hmac=Ova5b3XqMVygL4ZvFJ1MfAehiXKiM1Ol14jN_6widUY");
-        
-    }
+    flex-grow: 1;
 }
 
 footer {
     background-color: $colorPrimario;
-    //@include background("https://i.picsum.photos/id/62/200/300.jpg?hmac=Ova5b3XqMVygL4ZvFJ1MfAehiXKiM1Ol14jN_6widUY");
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 0.8em;
 }

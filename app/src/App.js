@@ -1,17 +1,19 @@
 import Header from "./Header"
 import Footer from "./Footer"
-//import container from react-bootstrap
-import { Container } from 'react-bootstrap'
+import Main from "./Main"
 
 function App() {
+
+    const edad = 32
+    const usuarios = ["Juan", "Pedro", "Maria"]
+
     return (
         <>
-            <Header />
-            <Container as="main">
-            {/* <main className="container"> */}
-                <div></div>
-            {/* </main> */}
-            </Container>
+            <Header/>
+            <Main nombre="Horacio" apellido="Gutierrez" edad={edad} usuarios={usuarios}>
+                <p>Hola Mundo</p>
+                <p>Hola Mundo Dos</p>
+            </Main>
             <Footer/>
         </>
     )

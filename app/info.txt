@@ -17,7 +17,9 @@ const Componente = () => {}
 
 class Componente {}
 
-Componente()   =  <Componente />
+
+
+Componente()   =  <Componente id=""/>
 Componente()   =  <Componente> </Componente>
 
 
@@ -41,3 +43,23 @@ Componente()   =  <Componente> </Componente>
 
 
 BEM 
+
+
+
+
+function foo(saludo){
+    console.log(saludo)
+}
+
+foo("Hola",1,2,3)
+
+
+
+function Foo(){
+
+}
+
+<Foo nombre="horacio" />
+
+
+PROPS : Son las propiedades que le pasamos a un componente como los parametros de una funcion en JS vanilla. Son de SOLO LECTURA. 
