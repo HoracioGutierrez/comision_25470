@@ -1,9 +1,10 @@
-$colorPrimario: yellow;
+$colorPrimario: #FF0000;
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 html,
@@ -17,6 +18,9 @@ body,
     flex-direction: column;
 }
 
+
+
+/*LAYOUT HEADER : START*/
 #main-header {
     background-color: $colorPrimario;
     display: flex;
@@ -24,18 +28,23 @@ body,
     justify-content: space-between;
     padding: 0.5rem 1rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    color : white;
 
     nav {
         a {
-            color: black;
+            color: white;
             text-decoration: none;
             margin-left: 1rem;
         }
     }
 }
+/*LAYOUT HEADER : END*/
+
+
 
 main {
     flex-grow: 1;
+    padding: 1rem;
 }
 
 footer {

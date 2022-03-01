@@ -8,6 +8,51 @@ COMPONENTES :
 1- Todos los componentes son funciones
 2- Todos los componentes arracan en mayuscula
 3- Todos los componentes tienen que retornar un elemento
+4- Todos los componentes pueden recibir N cantidad props de cualquier valor
+5- Todos los componentes pueden tener estado y ciclo de vida
+
+
+CLASS : props + state + lifecycle
+HOOK : Gancho - Son funciones que adaptan un componente funcional a que tenga funcionalidades que antes no tenia
+
+
+- useState
+- useEffect
+
+
+
+STATE : Son variables que viven adentro de un componente que cuando se modifican React lo vuelve a renderizar
+
+
+function App () {
+    const 
+}
+
+
+
+
+
+
+class App {
+
+
+    constructor(){}
+
+    render(){}
+
+    componentDidMount(){}
+
+    componentDidUpdate(){}
+
+    shouldComponentUpdate(){}
+
+    componentWillUnmount(){}
+
+}
+
+
+
+
 
 JSX : JS and XML
 
@@ -63,3 +108,6 @@ function Foo(){
 
 
 PROPS : Son las propiedades que le pasamos a un componente como los parametros de una funcion en JS vanilla. Son de SOLO LECTURA. 
+
+
+
