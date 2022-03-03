@@ -10,6 +10,11 @@ COMPONENTES :
 3- Todos los componentes tienen que retornar un elemento
 4- Todos los componentes pueden recibir N cantidad props de cualquier valor
 5- Todos los componentes pueden tener estado y ciclo de vida
+6- No tienen ciclo de vida real sino que son funciones que se vuelven a ejecutar por completo si :
+    - se modifica el estado
+    - se reciben nuevas props
+    - reinicia su padre
+    - se modifica el contexto
 
 
 CLASS : props + state + lifecycle
@@ -111,3 +116,22 @@ PROPS : Son las propiedades que le pasamos a un componente como los parametros d
 
 
 
+
+
+
+function foo(){
+    let a = 1
+    console.log(a)
+}
+
+foo()
+foo()
+
+
+$.ajax().then().catch()
+
+fetch().then().catch()
+
+otraFuncionRandom().then().catch()
+
+leerElCache().then().catch()
