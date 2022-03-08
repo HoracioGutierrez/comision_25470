@@ -59,7 +59,7 @@ const Main = (props) => {
 
     })
 
-    console.log(productos)
+    //console.log(productos)
 
     return (
         <main className="container">

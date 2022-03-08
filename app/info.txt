@@ -135,3 +135,137 @@ fetch().then().catch()
 otraFuncionRandom().then().catch()
 
 leerElCache().then().catch()
+
+
+
+AJAX : Async Javascript and XML
+
+XHR (XMLHttpRequest) : XMLHttpRequest es una clase de objeto que nos permite hacer peticiones a un servidor usando el protocolo HTTP
+CALLBACK OF HELL / Pyramid of doom :  
+
+const usuarios = hacerPedido((usuarios)=>{
+    const posteos = hacerPedido((posteos)=>{
+        const comentarios = hacerPedido((comentarios)=>{
+            console.log(usuarios,posteos,comentarios)
+        })
+    })
+})
+
+$.ajax() : Es la implementacion de jquery para XHR
+
+FETCH : Es la nueva implementacion de XHR + Promise
+
+
+FTP / TCP - IP / HTTPS / SSH / SMTP / POP / IMAP
+HTTP : HyperText Transfer Protocol
+
+AXIOS : https://www.npmjs.com/package/axios - Es una libreria que nos permite hacer peticiones a un servidor usando el protocolo HTTP (el nuevo ajax)
+
+
+
+
+CLIENTE / REQUEST
+
+IP / URL   -  METODO / VERBO (get - post - put - patch - delete , etc...)
+HEADERS
+    
+    Accept : un header que te sirve para configurar el tipo de contenido que quieres que te devuelva el servidor
+
+
+BODY / PAYLOAD : Es el cuerpo de la peticion que se envia al servidor
+
+
+
+
+SERVIDOR / RESPONSE 
+
+CODIGO -  MENSAJE
+
+1XX : Informacion
+
+2XX : Exito
+200 - 201 - 
+
+3XX : Redireccion
+302 - 304
+
+4XX : Error Cliente
+404 - 400 - 403 - 401 - 405 
+
+5XX : Error Servidor
+500 - 
+
+HEADERS 
+    Content-Type : Es el tipo de contenido que esta enviando el servidor
+    Content-Length : Es el tamaño del contenido que esta enviando el servidor en bytes
+BODY 
+    Es el cuerpo de la respuesta que nos devuelve el servidor
+
+
+CORS : Cross Origin Resource Sharing
+access-control-allow-origin : *
+
+
+
+    fetch("http://jsonplaceholder.typicode.com/users")
+
+    .then((respuesta)=>{
+        console.log("Salio bien")
+        console.log(respuesta)
+        
+        const descarga = respuesta.json()
+        return descarga
+    })
+    .then((respuesta)=>{
+        console.log("Ultimo")
+        retunr otra promesa
+    })
+    .then(()=>{
+
+    })
+    .catch((error)=>{
+        console.log("Salio mal")
+        console.log(error)
+    })
+
+
+    console.log("Test")
+
+
+
+
+ASYNC / AWAIT : Es una forma de hacer peticiones asincronas en JS
+
+funcfion async foo(){
+
+     try {
+        const respuesta = await fetch("http://jsonplaceholder.typicode.com/users")
+        const usuarios = await respuesta.json()
+        console.log(usuarios)
+     } catch (error) {
+         console.log(error)
+     }
+
+}
+
+
+
+FUNCIONES GENERADORAS 
+
+function foo * () {
+    codigo1
+    codigo2
+    yield() ;
+    codigo3
+    codigo4
+    yield;
+}
+
+
+foo.next(1)
+foo.next()
+
+redux-saga
+
+
+caches.open("")
