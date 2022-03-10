@@ -14,9 +14,9 @@ const Main = (props) => {
         <main className="container">
             <Routes>
                 <Route path="/" element={<ItemListContainer/>}/>
-                <Route path="/categoria/:id" element={<ItemListContainer/>}/>
+                <Route path="/tipo/:id" element={<ItemListContainer/>}/>
                 <Route path="/carrito" element={<Carrito/>}/>
-                <Route path="/item/:id" element={<ItemDetailContainer/>}/>
+                <Route path="/pokemon/:id" element={<ItemDetailContainer/>}/>
             </Routes>
         </main>
     );
