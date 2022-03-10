@@ -269,3 +269,12 @@ redux-saga
 
 
 caches.open("")
+
+
+
+
+BrowserRouter : DOM (History API)
+HashRouter : URL (Location API)
+StaticRouter : SSR (Servidor Back End)
+MemoryRouter
+NativeRouter

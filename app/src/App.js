@@ -1,22 +1,19 @@
 import Header from "./Header"
 import Footer from "./Footer"
 import Main from "./Main"
+import { ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
 
-    const edad = 32
-    const usuarios = ["Juan", "Pedro", "Maria"]
-    const miOnAdd = () => {}
-
     return (
-        <>
+        <BrowserRouter>
             <Header/>
-            <Main nombre="Horacio" apellido="Gutierrez" onAdd={miOnAdd} edad={edad} usuarios={usuarios} initial={1}>
-                <p>Hola Mundo</p>
-                <p>Hola Mundo Dos</p>
-            </Main>
+            <Main nombre="Horacio" apellido="Gutierrez"/>
             <Footer/>
-        </>
+            <ToastContainer/>
+        </BrowserRouter>
     )
 }
 

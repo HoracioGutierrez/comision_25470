@@ -30,11 +30,48 @@ body,
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     color : white;
 
+    > a  {
+        color: white;
+        text-decoration: none;
+    }
+
     nav {
         a {
             color: white;
             text-decoration: none;
             margin-left: 1rem;
+
+            &:before {
+                content : "[";
+                color: white;
+                position: relative;
+                left: 10px;
+                opacity: 0;
+                transition: all 0.3s ease;
+            }
+
+            &:after {
+                content : "]";
+                color: white;
+                position: relative;
+                right: 10px;
+                opacity: 0;
+                transition: all 0.3s ease;
+            }
+
+            &.active::after {
+                opacity: 1;
+                right: -10px;
+            }
+
+            &.active::before {
+                opacity: 1;
+                left: -10px;
+            }
+
+            &.active {
+                color: yellow;
+            }
         }
     }
 }
