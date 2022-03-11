@@ -3,28 +3,6 @@ import { useParams } from "react-router-dom"
 import { toast } from "react-toastify"
 import ItemList from "./ItemList"
 
-
-let productosIniciales = [
-    {
-        id: 1,
-        nombre: "Producto 1",
-        precio: 100,
-        categoria : 1
-    },
-    {
-        id: 2,
-        nombre: "Producto 2",
-        precio: 200,
-        categoria : 2
-    },
-    {
-        id: 3,
-        nombre: "Producto 3",
-        precio: 300,
-        categoria : 3
-    }
-]
-
 const ItemListContainer = () => {
 
     const [productos, setProductos] = useState([])
@@ -34,18 +12,29 @@ const ItemListContainer = () => {
     
     useEffect(() => {
         
-        const promesa = new Promise((res, rej) => {
-            setTimeout(() => {
-                console.log(id)
-                //if(id){
-                res(productosIniciales)
-                //rej(productosIniciales)
-            }, 3000)
-        })
+        const pedido = fetch("https://pokeapi.co/api/v2/pokemon")
 
-        promesa
+        pedido
             .then((respuestaDeLaApi) => {
-                setProductos(productosIniciales)
+                //setProductos(respuestaDeLaApi)
+                return respuestaDeLaApi.json()
+            })
+            .then((datos) => {
+                const resultado = datos.results.map((dato)=>{
+                    return fetch(dato.url)
+                })
+
+                return Promise.all(resultado)
+            })
+            .then((datos)=>{
+                const resultado = datos.map((response)=>{
+                    return response.json()
+                })
+
+                return Promise.all(resultado)
+            })
+            .then((pokemones)=>{
+                setProductos(pokemones)
             })
             .catch((errorDeLaApi) => {
                 toast.error("Error al cargar los productos")

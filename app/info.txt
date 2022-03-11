@@ -278,3 +278,52 @@ HashRouter : URL (Location API)
 StaticRouter : SSR (Servidor Back End)
 MemoryRouter
 NativeRouter
+
+
+
+src/
+    |_index.js
+    |_ui/
+        |_layout/
+            |_App.js
+            |_Header.js
+            |_NavBar.js
+            |_Main.js
+            |_Footer.js
+        |_pages/
+            |_ItemListContainer.js
+            |_ItemDetailContainer.js
+            |_Carrito.js
+        |_widgets
+            |_CarWidget.js
+    |_api/
+        |_Providers.js
+        |_Contexto.js
+        |_Redux.js
+
+src/
+    |_App/
+        |_App.js
+        |_App.css
+    |_Header/
+        |_Header.js
+        |_Header.css
+    |_ItemListContainer/
+        |_ItemListContainer.js
+        |_ItemList.js
+        |_Item.js
+        |_ItemListContainer.css
+
+
+Dynamic Imports : Es una forma de importar componentes dinamicamente
+
+
+
+fetch => Promise
+fetch() => Reponse
+Reponse => Response.json()
+Response.json() => Promise
+
+promesa suelta : no esta adentro de un .then
+promesa adentro de un .then : la retornas y continuas con un .then abajo del .then anterior
+muchas promesas adentro de un .then : las retornas adentro de un Promise.all() y continuas con un .then abajo del .then anterior
