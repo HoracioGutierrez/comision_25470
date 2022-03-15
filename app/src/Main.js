@@ -6,10 +6,6 @@ import Carrito from "./Carrito"
 
 const Main = (props) => {
 
-    const handleToast = () => {
-        toast.info("Soy un toast :)")
-    }
-
     return (
         <main className="container">
             <Routes>

@@ -8,6 +8,7 @@ const ItemDetailContainer = () => {
 
   const [item, setItem] = useState({})
   const [loading, setLoading] = useState(true)
+  const [seleccionado, setSeleccionado] = useState(false)
   const { id } = useParams()
 
   useEffect(() => {
@@ -30,7 +31,14 @@ const ItemDetailContainer = () => {
     },3000)
 
   })
-  
+
+  const onAdd = (unidadSeleccionada) => {
+    console.log("On Add desde el ItemDetailContainer")
+    if(unidadSeleccionada != undefined){
+      setSeleccionado(unidadSeleccionada)
+    }
+  }
+
   if(loading){
     return <Loader/>
   }else{
@@ -46,7 +54,8 @@ const ItemDetailContainer = () => {
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic magnam maiores ipsum mollitia nulla, fuga provident doloribus quis quas. Maxime ipsam accusantium a, ex pariatur fuga, saepe nostrum dicta dignissimos in libero, ut corporis accusamus aliquam atque! Id ducimus, cumque voluptas consequatur, earum facilis dolor numquam nihil eaque, ea saepe.
         </p>
-        {/* <Contador/> */}
+        <Contador initial={1} stock={5} onAdd={onAdd}/>
+        <p>{seleccionado?"ya se selecciono algo!":"No se eligion ninguna cantidad"}</p>
       </div>
     )
   }
