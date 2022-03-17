@@ -1,8 +1,13 @@
-import { useState } from "react"
+import { useState , useContext } from "react"
+import { contexto } from "./miContexto"
+
 
 const Contador = ({stock,initial,onAdd}) => {
-
+    
     const [contador, setContador] = useState(initial)
+    
+    const resultado = useContext(contexto)
+    console.log(resultado)
     
     const handleAumentar = (e) => {
         if(contador < stock){

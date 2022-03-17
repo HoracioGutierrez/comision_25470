@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { toast } from "react-toastify"
 import Contador from "./Contador"
 import Loader from "./Loader"
@@ -12,9 +12,9 @@ const ItemDetailContainer = () => {
   const { id } = useParams()
 
   useEffect(() => {
-    setTimeout(()=>{
+    setTimeout(() => {
       const pedido = fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-  
+
       pedido
         .then((respuesta) => {
           return respuesta.json()
@@ -28,20 +28,20 @@ const ItemDetailContainer = () => {
         .finally(() => {
           setLoading(false)
         })
-    },3000)
+    }, 3000)
 
-  })
+  },[id])
 
   const onAdd = (unidadSeleccionada) => {
     console.log("On Add desde el ItemDetailContainer")
-    if(unidadSeleccionada != undefined){
+    if (unidadSeleccionada != undefined) {
       setSeleccionado(unidadSeleccionada)
     }
   }
 
-  if(loading){
-    return <Loader/>
-  }else{
+  if (loading) {
+    return <Loader />
+  } else {
     return (
       <div id="detalle">
         <h2>
@@ -54,8 +54,9 @@ const ItemDetailContainer = () => {
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic magnam maiores ipsum mollitia nulla, fuga provident doloribus quis quas. Maxime ipsam accusantium a, ex pariatur fuga, saepe nostrum dicta dignissimos in libero, ut corporis accusamus aliquam atque! Id ducimus, cumque voluptas consequatur, earum facilis dolor numquam nihil eaque, ea saepe.
         </p>
-        <Contador initial={1} stock={5} onAdd={onAdd}/>
-        <p>{seleccionado?"ya se selecciono algo!":"No se eligion ninguna cantidad"}</p>
+        <Contador initial={1} stock={5} onAdd={onAdd} />
+        <p>{seleccionado ? "ya se selecciono algo!" : "No se eligion ninguna cantidad"}</p>
+        {seleccionado ? <Link to="/carrito">carrito</Link> : null}
       </div>
     )
   }
