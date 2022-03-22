@@ -26,6 +26,7 @@ const Carrito = () => {
                     <button onClick={handleBorrar}>borrar</button>
                 </div>
             ))}
+            {/* <Link>checkout</Link> */}
         </>
     )
 }

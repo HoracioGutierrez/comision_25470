@@ -327,3 +327,15 @@ Response.json() => Promise
 promesa suelta : no esta adentro de un .then
 promesa adentro de un .then : la retornas y continuas con un .then abajo del .then anterior
 muchas promesas adentro de un .then : las retornas adentro de un Promise.all() y continuas con un .then abajo del .then anterior
+
+
+const arr = [1,2,3,4,5]
+
+arr.filter((item)=>{
+    //return true si pasa tu filtro y false si no pasa
+    if(item>2){
+        return true
+    }else{
+        return false
+    }
+})

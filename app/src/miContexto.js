@@ -9,6 +9,7 @@ const MiProvider = ({children}) => {
 
     const [carrito,setCarrito] = useState([])
     const [total,setTotal] = useState(0)
+    const [cantidad,setCantidad] = useState(0)
 
     const borrarDelCarrito = (id) => {}
 

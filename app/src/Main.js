@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import ItemListContainer from "./ItemListContainer";
 import ItemDetailContainer from "./ItemDetailContainer";
 import Carrito from "./Carrito"
+import Test from "./Test";
 
 const Main = (props) => {
 
@@ -13,6 +14,7 @@ const Main = (props) => {
                 <Route path="/tipo/:id" element={<ItemListContainer/>}/>
                 <Route path="/carrito" element={<Carrito/>}/>
                 <Route path="/pokemon/:id" element={<ItemDetailContainer/>}/>
+                <Route path="/test" element={<Test/>} />
             </Routes>
         </main>
     );

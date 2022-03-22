@@ -34,7 +34,11 @@ const ItemListContainer = () => {
                 return Promise.all(resultado)
             })
             .then((pokemones)=>{
-                setProductos(pokemones)
+                if(id){
+                    
+                }else{
+                    setProductos(pokemones)
+                }
             })
             .catch((errorDeLaApi) => {
                 toast.error("Error al cargar los productos")

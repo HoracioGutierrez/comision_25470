@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { toast } from "react-toastify"
 import Contador from "./Contador"
 import Loader from "./Loader"
+import { contexto } from "./miContexto"
 
 const ItemDetailContainer = () => {
 
@@ -10,6 +11,7 @@ const ItemDetailContainer = () => {
   const [loading, setLoading] = useState(true)
   const [seleccionado, setSeleccionado] = useState(false)
   const { id } = useParams()
+  const {agregarAlCarrito} = useContext(contexto)
 
   useEffect(() => {
     setTimeout(() => {
