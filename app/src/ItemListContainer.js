@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { toast } from "react-toastify"
+import { db } from "./Firebase"
 import ItemList from "./ItemList"
+import {getDocs , collection} from "firebase/firestore"
+
+//getDocs - getDoc - getCollection - addDoc - updateDoc - deleteDoc
 
 const ItemListContainer = () => {
 
@@ -11,8 +15,40 @@ const ItemListContainer = () => {
     
     
     useEffect(() => {
+
+        const pokemonCollection = collection(db,"pokemones")
+        const documentos = getDocs(pokemonCollection)
+
+        documentos
+            .then((respuesta)=>{
+                //en fetch era asi
+                //console.log(respuesta.json())
+
+                const aux = []
+
+                respuesta.forEach((documento)=>{
+                    /* console.log(documento.data())
+                    console.log(documento.id) */
+                    const pokemon = {
+                        id: documento.id,
+                        ...documento.data()
+                    }
+
+                    //console.log(pokemon)
+                    aux.push(pokemon)
+                })
+
+                console.log(aux)
+                setProductos(aux)
+
+            })
+            .catch(()=>{
+                toast.error("Hubo un error!")
+            })
+
+
         
-        const pedido = fetch("https://pokeapi.co/api/v2/pokemon")
+       /*  const pedido = fetch("https://pokeapi.co/api/v2/pokemon")
 
         pedido
             .then((respuestaDeLaApi) => {
@@ -45,7 +81,7 @@ const ItemListContainer = () => {
             })
             .finally(() => {
                 setLoading(false)
-            })
+            }) */
 
     },[id])
 

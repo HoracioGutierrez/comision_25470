@@ -339,3 +339,22 @@ arr.filter((item)=>{
         return false
     }
 })
+
+
+
+Proyecto : Nos permite acceder a los servicios de Firebase
+Servicio : Cada una de las prestaciones que ofrece Firebase
+Base de datos : Es una coleccion de datos
+Aplicacion : 
+
+SQL / RELACIONALES : SQL - MySQL - SQLite - PostgreSQL - Oracle - Microsoft SQL Server
+NoSQL / NO RELACIONALES : MongoDB - Cassandra - CouchDB - Firebase - Redis 
+
+
+Base de datos   =   Base de datos
+Tablas          =   Colecciones
+Registros       =   Documentos
+
+
+CRUD / ABML : Create Read Update Delete / Alta Baja Modificacion Lectura
+

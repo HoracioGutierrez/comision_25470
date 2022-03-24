@@ -12,7 +12,7 @@ const ItemDetailContainer = () => {
   const [seleccionado, setSeleccionado] = useState(false)
   const { id } = useParams()
   const {agregarAlCarrito} = useContext(contexto)
-
+  
   useEffect(() => {
     setTimeout(() => {
       const pedido = fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
