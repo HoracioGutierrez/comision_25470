@@ -16,7 +16,7 @@ const ItemListContainer = () => {
     
     useEffect(() => {
 
-        const pokemonCollection = collection(db,"pokemones")
+        /* const pokemonCollection = collection(db,"pokemones")
         const documentos = getDocs(pokemonCollection)
 
         documentos
@@ -27,8 +27,8 @@ const ItemListContainer = () => {
                 const aux = []
 
                 respuesta.forEach((documento)=>{
-                    /* console.log(documento.data())
-                    console.log(documento.id) */
+                     console.log(documento.data())
+                    console.log(documento.id) 
                     const pokemon = {
                         id: documento.id,
                         ...documento.data()
@@ -45,10 +45,10 @@ const ItemListContainer = () => {
             .catch(()=>{
                 toast.error("Hubo un error!")
             })
-
+ */
 
         
-       /*  const pedido = fetch("https://pokeapi.co/api/v2/pokemon")
+        const pedido = fetch("https://pokeapi.co/api/v2/pokemon")
 
         pedido
             .then((respuestaDeLaApi) => {
@@ -81,7 +81,7 @@ const ItemListContainer = () => {
             })
             .finally(() => {
                 setLoading(false)
-            }) */
+            })
 
     },[id])
 

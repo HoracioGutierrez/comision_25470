@@ -358,3 +358,31 @@ Registros       =   Documentos
 
 CRUD / ABML : Create Read Update Delete / Alta Baja Modificacion Lectura
 
+
+
+Implementacion Manual de Patron Provider : 
+
+1) Haces un archivo nuevo
+2) Creas un contexto (createContext) en el archivo que creaste recien y lo exportas (sin default)
+3) Del contexto del paso dos sacas la variable Provider
+4) Creas un componente que tenga como prop "children" y como retorno el Provider del paso tres y en el medio el componente que te vino como children
+5) Al Provider del paso dos que usaste en el retorno del componente del paso 4 le pones el prop value
+6) Exportas el componente del paso 4
+
+
+Implementacion Automatica de Patron Provider : 
+
+https://marketplace.visualstudio.com/items?itemName=burkeholland.simple-react-snippets
+Snippet : "cp"
+
+
+USO DEL PATRON PROVIDER : 
+
+1) Creas como minimo la informacion que queres compartir "global"|, es decir, todo aquello que necesitas en varios componentes y que, o los componentes estan muy lejos entre si o tan abajo que no queres pasarlo a traves de mil props. Usualmente son estados o funciones. 
+2) Todo lo que creaste en el paso 1 lo pones como valor (prop value) del Custom Provider que creaste 
+3) Ubicas el Provider en el componente a partir del cual queres que sea compartido
+4) Vas al componente en donde necesitas alguno de los valores del Provider, es decir, alguna de las cosas que figuran en su prop "value"
+5) En ese componente que elegiste en el paso 4 importas el hook useContext y el objeto contexto que creaste en el paso 2 de la Implementacion Manual de Patron Provider
+6) Usas el hook useContext pasandole como parametro el objeto contexto
+7) ???
+8) Profit

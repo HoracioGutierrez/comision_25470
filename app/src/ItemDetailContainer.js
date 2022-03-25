@@ -3,7 +3,10 @@ import { Link, useParams } from "react-router-dom"
 import { toast } from "react-toastify"
 import Contador from "./Contador"
 import Loader from "./Loader"
-import { contexto } from "./miContexto"
+import { contexto } from "./MiProvider"
+
+
+
 
 const ItemDetailContainer = () => {
 
@@ -11,7 +14,8 @@ const ItemDetailContainer = () => {
   const [loading, setLoading] = useState(true)
   const [seleccionado, setSeleccionado] = useState(false)
   const { id } = useParams()
-  const {agregarAlCarrito} = useContext(contexto)
+  const {agregarProducto} = useContext(contexto)
+
   
   useEffect(() => {
     setTimeout(() => {
@@ -41,6 +45,11 @@ const ItemDetailContainer = () => {
     }
   }
 
+  const handleClick = () => {
+    console.log("Click del Link/Boton")
+    agregarProducto()
+  }
+
   if (loading) {
     return <Loader />
   } else {
@@ -58,7 +67,7 @@ const ItemDetailContainer = () => {
         </p>
         <Contador initial={1} stock={5} onAdd={onAdd} />
         <p>{seleccionado ? "ya se selecciono algo!" : "No se eligion ninguna cantidad"}</p>
-        {seleccionado ? <Link to="/carrito">carrito</Link> : null}
+        {seleccionado ? <Link onClick={handleClick} to="/carrito">carrito</Link> : null}
       </div>
     )
   }

@@ -5,8 +5,7 @@ import ItemDetailContainer from "./ItemDetailContainer";
 import Carrito from "./Carrito"
 import Test from "./Test";
 
-const Main = (props) => {
-
+const Main = ({nombre,apellido}) => {
     return (
         <main className="container">
             <Routes>

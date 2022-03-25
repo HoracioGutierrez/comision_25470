@@ -4,7 +4,7 @@ import Main from "./Main"
 import { ToastContainer } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter } from "react-router-dom";
-import MiProvider from "./miContexto"
+import MiProvider from "./MiProvider";
 
 function App() {
     return (
