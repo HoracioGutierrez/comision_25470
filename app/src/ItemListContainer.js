@@ -3,93 +3,51 @@ import { useParams } from "react-router-dom"
 import { toast } from "react-toastify"
 import { db } from "./Firebase"
 import ItemList from "./ItemList"
-import {getDocs , collection} from "firebase/firestore"
+import { getDocs, collection , query , where } from "firebase/firestore"
 
-//getDocs - getDoc - getCollection - addDoc - updateDoc - deleteDoc
+//getDocs - getDoc - collection - addDoc - updateDoc
 
 const ItemListContainer = () => {
 
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
-    const {id} = useParams()
-    
-    
+    const { id } = useParams()
+
+    console.log(id)
+
     useEffect(() => {
-
-        /* const pokemonCollection = collection(db,"pokemones")
-        const documentos = getDocs(pokemonCollection)
-
-        documentos
-            .then((respuesta)=>{
-                //en fetch era asi
-                //console.log(respuesta.json())
-
-                const aux = []
-
-                respuesta.forEach((documento)=>{
-                     console.log(documento.data())
-                    console.log(documento.id) 
-                    const pokemon = {
-                        id: documento.id,
-                        ...documento.data()
-                    }
-
-                    //console.log(pokemon)
-                    aux.push(pokemon)
-                })
-
-                console.log(aux)
-                setProductos(aux)
-
-            })
-            .catch(()=>{
-                toast.error("Hubo un error!")
-            })
- */
-
         
-        const pedido = fetch("https://pokeapi.co/api/v2/pokemon")
+        if(!id){
 
-        pedido
-            .then((respuestaDeLaApi) => {
-                //setProductos(respuestaDeLaApi)
-                return respuestaDeLaApi.json()
-            })
-            .then((datos) => {
-                const resultado = datos.results.map((dato)=>{
-                    return fetch(dato.url)
-                })
+            const pokemonCollection = collection(db, "pokemones")
+            const documentos = getDocs(pokemonCollection)
+    
+            documentos
+            .then(respuesta => setProductos(respuesta.docs.map(doc=>doc.data())))
+            .catch(error => toast.error("Error al obtener los productos"))
+            .finally(() => setLoading(false))
 
-                return Promise.all(resultado)
-            })
-            .then((datos)=>{
-                const resultado = datos.map((response)=>{
-                    return response.json()
-                })
+        } else {
 
-                return Promise.all(resultado)
-            })
-            .then((pokemones)=>{
-                if(id){
-                    
-                }else{
-                    setProductos(pokemones)
-                }
-            })
-            .catch((errorDeLaApi) => {
-                toast.error("Error al cargar los productos")
-            })
-            .finally(() => {
-                setLoading(false)
-            })
+            const pokemonCollection = collection(db, "pokemones")
+            const miFiltro = query(pokemonCollection,where("categoria","==",id))
+            const documentos = getDocs(miFiltro)
 
-    },[id])
+            documentos
+            .then(respuesta => setProductos(respuesta.docs.map(doc=>doc.data())))
+            .catch(error => toast.error("Error al obtener los productos"))
+            .finally(() => setLoading(false))
+            
+        }
+
+
+    }, [id])
 
 
     return (
         <>
             <p>{loading ? "Cargando..." : "Ya tenes los productos"}</p>
-            <ItemList productos={productos}/>
+            <ItemList productos={productos} />
         </>
     )
 }

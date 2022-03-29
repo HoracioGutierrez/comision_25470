@@ -5,22 +5,15 @@ const {Provider} = contexto
 
 const MiProvider = ({children}) => {
 
-    const [carrito,setCarrito] = useState([
-        {
-            id: 1,
-            nombre: "Camisa",
-            precio: 50
-        },
-        {
-            id: 2,
-            nombre: "Pantalon",
-            precio: 100
-        }
-    ])
+    const [carrito,setCarrito] = useState([])
+    const [total,setTotal] = useState(0)
+    const [cantidadActual,setCantidadActual] = useState(0)
 
-    const agregarProducto = () => {
+    const agregarProducto = (item,cantidad) => {
         //aca seguro va el setCarrito porque no la puedo pasar directo
-        //setCarrito()
+        setCarrito([...carrito,{...item,cantidad}])
+        setTotal(total + item.precio * cantidad)
+        setCantidadActual(cantidadActual + cantidad)
         console.log("Funciona")
     }
 
@@ -32,7 +25,8 @@ const MiProvider = ({children}) => {
     const valorDelProvider = {
         carrito ,
         borrarProducto,
-        agregarProducto
+        agregarProducto,
+        total
     }
 
     return (
